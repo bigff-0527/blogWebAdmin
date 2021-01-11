@@ -95,20 +95,20 @@
 </template>
 
 <script>
-  import {findBlogById} from "network/admin";
+  import {findBlogById} from "network/blogs";
   // import {dropdown} from "assets/js/pop";
-  import {saveBlog} from "network/admin";
+  import {saveBlog,updateBlog} from "network/blogs";
 
   import {getTypeList} from "network/type"
   import {getTagList} from "network/tag";
 
   export default {
-    name: "BlogAdd",
+    name: "BlogInput",
     data() {
       return {
         blogInput: {
-          appreciation: '',
-          commentabled: '',
+          appreciation: false,
+          commentabled: false,
           comments: [],
           content: "",
           create_time: "",
@@ -134,16 +134,22 @@
       //点击事件
       published(p) {
         this.blogInput.published = p
-        saveBlog(this.blogInput).then(res => {
+        if (this.blogInput.id==null){
+          saveBlog(this.blogInput).then(res => {
+            if (res.data.code === 200){
+              this.$message.success("操作成功",{duration: 3 * 1000})
+              this.$router.go(-1)
+            }else this.$message.error("操作失败",{duration: 3 * 1000})
+          })
+        }else{
+          updateBlog(this.blogInput).then( res => {
+            if (res.data.code === 200){
+              this.$message.success("操作成功",{duration: 3 * 1000})
+              this.$router.go(-1)
+            }else this.$message.error("操作失败",{duration: 3 * 1000})
+          })
+        }
 
-          if (res.data.code === 200){
-            this.$message.success("操作成功",{duration: 3 * 1000})
-            this.$router.go(-1)
-          }else{
-            this.$message.error("操作失败",{duration: 3 * 1000})
-          }
-
-        })
       },
       //网络请求
       getTypeList(){
@@ -158,7 +164,6 @@
       },
       findBlogById() {
         let id = this.$store.getters.getBlogId
-
         if (id !== null) {
           findBlogById(id).then(res => {
             console.log(res.data)
@@ -169,7 +174,6 @@
       },
     },
     mounted() {
-      // dropdown()
 
       this.findBlogById()
     },

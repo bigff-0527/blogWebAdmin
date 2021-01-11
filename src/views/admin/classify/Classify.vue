@@ -82,7 +82,7 @@
       return {
         typeList : {
           pageNum : 1,
-          pageSize : 8,
+          pageSize : 10,
           list: []
         },
         inputFlag: false,
@@ -94,7 +94,7 @@
         },
         dialogFormVisible: false,
         search: '',
-        total: 8,
+        total: 10,
       }
     },
     components: {
@@ -117,7 +117,7 @@
       getTypePageList(pageNum){
         const pageSize = this.typeList.pageSize
         getTypePageList(pageNum,pageSize).then( res => {
-          this.total = res.data.data.pages * 8
+          this.total = res.data.data.pages * 10
           console.log(this.total);
           this.upFlag = res.data.data.hasPreviousPage
           this.nextFlag = res.data.data.hasNextPage

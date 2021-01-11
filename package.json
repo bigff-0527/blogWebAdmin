@@ -7,19 +7,22 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
+    "echarts": "^4.8.0",
     "mavon-editor": "^2.9.1",
     "qs": "latest",
     "vue": "^2.6.11",
     "vuex": "^3.6.0"
   },
   "devDependencies": {
-    "semantic-ui-css": "^2.2.4",
-    "jquery": "^3.2.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "element-ui": "^2.14.1",
     "axios": "^0.21.1",
+    "element-ui": "^2.14.1",
+    "jquery": "^3.2.0",
+    "popper.js": "^1.16.1",
+    "semantic-ui-css": "^2.2.4",
     "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11"
   }

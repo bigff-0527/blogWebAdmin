@@ -23,7 +23,7 @@ const router = new Router({
   routes: [
     {
       path: '',
-      redirect: '/admin'
+      redirect: '/login'
     },
     {
       path: '/admin',
@@ -35,7 +35,7 @@ const router = new Router({
       children: [
         {
           path: '',
-          component: Index
+          component: Index,
         },
         {
           path: 'blogs',

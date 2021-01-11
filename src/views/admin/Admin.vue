@@ -1,13 +1,12 @@
 <template>
-    <el-container :style="{height:vdaH}" style="width: 80%;margin-top: 50px">
+    <el-container  style="width: 100%;">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <el-aside width="22%" >
+      <el-aside width="20%" style="padding:20px 0">
       <admin-tab-bar ref="boy02">
       </admin-tab-bar>
       </el-aside>
-      <el-main>
-        <router-view v-if="isRouterAlive"
-                     :id="blogId"
+      <el-main style="width: 100%">
+        <router-view v-show="isRouterAlive"
         ></router-view>
       </el-main>
     </el-container>
@@ -51,30 +50,13 @@
           this.isRouterAlive = true
         })
       },
-      // getBlogList(pageSize){
-      //   const pageNum = this.blogList.pageNum + 1
-      //   getBlogList(pageNum,pageSize).then(res => {
-      //     console.log(res.data)
-      //   })
-      // },
-
-      editBlog(id){
-        this.blogId=id
-        this.$router.push("/admin/blogInput")
-      },
-      insertClick(id){
-        this.blogId=id
-        this.$router.push("/admin/blogInput")
-      },
-
     },
     mounted() {
-      // message()
     },
     created() {
 
       let h = document.documentElement.clientHeight || document.body.clientHeight;
-      this.vdaH = h - 130 + 'px';
+      this.vdaH = h - 100 + 'px';
 
     },
   }

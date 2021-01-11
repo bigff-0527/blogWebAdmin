@@ -79,7 +79,7 @@
       return {
         tagList : {
           pageNum : 1,
-          pageSize : 8,
+          pageSize : 10,
           list: []
         },
         checkFlag: true,
@@ -89,7 +89,7 @@
           tagName: '',
         },
         dialogFormVisible: false,
-        total: 8,
+        total: 10,
         search: ''
       }
     },
@@ -109,7 +109,7 @@
       getTagPageList(pageNum){
         const pageSize = this.tagList.pageSize
         getTagPageList(pageNum,pageSize).then( res => {
-          this.total = res.data.data.pages * 8
+          this.total = res.data.data.pages * 10
           this.tagList.list = res.data.data.list
         })
       },
